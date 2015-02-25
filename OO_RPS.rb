@@ -40,7 +40,7 @@ class Human
     begin 
       puts "Please pick rock, paper or scissors (r, p, s)."
       c = gets.chomp.downcase 
-    end until Blackjack::CHOICES.keys.include?(c)
+    end until RockPaperScissors::CHOICES.keys.include?(c)
     self.hand = Hand.new(c)
   end
 
@@ -58,7 +58,7 @@ class Computer
   end
 
   def pick_hand
-    self.hand = Hand.new(Blackjack::CHOICES.keys.sample)
+    self.hand = Hand.new(RockPaperScissors::CHOICES.keys.sample)
   end
 
   def display_hand
@@ -67,7 +67,7 @@ class Computer
 end
 
 
-class Blackjack
+class RockPaperScissors
   CHOICES = {'p' => 'paper', 'r' => 'rock', 's' => 'scissors'}
   attr_reader :human, :computer
 
@@ -82,7 +82,7 @@ class Blackjack
     elsif human.hand > computer.hand
       human.hand.display_winning_message
       puts "#{human.name} won!"
-    else human.hand < computer.hand
+    else 
       computer.hand.display_winning_message
       puts "#{computer.name} won!"
     end
@@ -101,4 +101,4 @@ class Blackjack
   end
 end 
 
-game = Blackjack.new.play
+game = RockPaperScissors.new.play
