@@ -101,4 +101,4 @@ class RockPaperScissors
   end
 end 
 
-game = RockPaperScissors.new.play
+RockPaperScissors.new.play
